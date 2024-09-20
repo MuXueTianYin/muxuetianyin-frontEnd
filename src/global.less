@@ -1,0 +1,205 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}
+/* 隐藏浏览器滚动条 */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.quill-editor {
+  width: 1000px;
+  .ql-container {
+    height: 300px;
+  }
+  .editor-upload {
+    display: none;
+  }
+}
+/*
+    文字大小
+  */
+.ql-snow .ql-picker.ql-size {
+  width: 70px; // 菜单栏占比宽度
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='10px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='10px']::before {
+  content: '10px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='12px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='12px']::before {
+  content: '12px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='14px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='14px']::before {
+  content: '14px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='16px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='16px']::before {
+  content: '16px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='20px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='20px']::before {
+  content: '20px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='24px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='24px']::before {
+  content: '24px';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='36px']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='36px']::before {
+  content: '36px';
+}
+
+/*
+  字体
+*/
+.ql-snow .ql-picker.ql-font {
+  width: 80px; // 菜单栏占比宽度
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='宋体']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='宋体']::before {
+  content: '宋体';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='黑体']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='黑体']::before {
+  content: '黑体';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='微软雅黑']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='微软雅黑']::before {
+  content: '微软雅黑';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='楷体']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='楷体']::before {
+  content: '楷体';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='仿宋']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='仿宋']::before {
+  content: '仿宋';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='Arial']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='Arial']::before {
+  content: 'Arial';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='苹方']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='苹方']::before {
+  content: '苹方';
+}
+
+/*
+  标题
+*/
+.ql-snow .ql-picker.ql-header {
+  width: 80px; // 菜单栏占比宽度
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  content: '文本' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='1']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='1']::before {
+  content: '标题1' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='2']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='2']::before {
+  content: '标题2' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='3']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='3']::before {
+  content: '标题3' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='4']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='4']::before {
+  content: '标题4' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='5']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='5']::before {
+  content: '标题5' !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='6']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='6']::before {
+  content: '标题6' !important;
+}
+//配置编辑器行高
+.ql-snow .ql-picker.ql-lineheight {
+  width: 70px; // 菜单栏占比宽度
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-label::before {
+  content: '行高';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='initial']::before {
+  content: '默认';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='1']::before {
+  content: '1';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='1.5']::before {
+  content: '1.5';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='1.75']::before {
+  content: '1.75';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='2']::before {
+  content: '2';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='3']::before {
+  content: '3';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='4']::before {
+  content: '4';
+}
+.ql-snow .ql-picker.ql-lineheight .ql-picker-item[data-value='5']::before {
+  content: '5';
+}
