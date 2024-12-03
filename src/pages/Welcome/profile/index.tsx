@@ -2,7 +2,7 @@ import { CaretRightOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Button, Card, Collapse, Divider, Image, List, Tag, Timeline, Typography } from 'antd';
 import React from 'react';
-import myImage from '../../public/image/2.jpg';
+import myImage from '../../../../public/image/2.jpg';
 
 const skills = [
   'React',

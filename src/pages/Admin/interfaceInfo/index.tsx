@@ -1,4 +1,4 @@
-import CreateModal from '@/pages/interfaceInfo/components/CreateModal';
+import CreateModal from '@/pages/Admin/interfaceInfo/components/CreateModal';
 import {
   createUsingPOST,
   deleteUsingDELETE,

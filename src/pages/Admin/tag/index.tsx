@@ -1,12 +1,17 @@
-import CreateModal from '@/pages/tag/components/CreateModal';
-import { pageUsingGET1, saveUsingPOST2, updateUsingPUT1 } from '@/services/muxeu-backend/product';
-import { deleteTagUsingDELETE } from '@/services/muxeu-backend/tags';
+
+import {
+  createUsingPOST1,
+  deleteTagUsingDELETE,
+  getAllTagByPageUsingGET,
+  updateTagUsingPUT,
+} from '@/services/muxeu-backend/tags';
 import { eventBus } from '@/utils/EventBus';
 import { PlusOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
 import { ActionType, ProColumns, ProTable } from '@ant-design/pro-table';
 import { Button, message } from 'antd';
 import { useEffect, useRef, useState } from 'react';
+import CreateModal from "@/pages/Admin/tag/components/CreateModal";
 
 /**
  * @en-US Update node
@@ -42,76 +47,40 @@ const columns: ProColumns<API.InterfaceInfo>[] = [
     hideInForm: true,
   },
   {
-    title: '商品名称',
-    dataIndex: 'name',
+    title: '标签名称',
+    dataIndex: 'tagName',
     copyable: true,
     ellipsis: true,
     sorter: true,
     search: {
-      transform: (value: any) => ({ name: value }),
+      transform: (value: any) => ({ tagName: value }),
     },
     formItemProps: {
       rules: [
         {
           required: true,
-          message: '请输入商品名称',
+          message: '请输入标签名称',
         },
       ],
     },
   },
   {
-    title: '商品描述',
-    dataIndex: 'description',
-    copyable: true,
-    ellipsis: true,
+    title: '用户id',
+    dataIndex: 'userId',
     sorter: true,
     search: {
-      transform: (value: any) => ({ description: value }),
-    },
-  },
-  {
-    title: '商品分类id',
-    dataIndex: 'productCategoryId',
-    sorter: true,
-    search: {
-      transform: (value: any) => ({ productCategoryId: value }),
+      transform: (value: any) => ({ userId: value }),
     },
     editable: false,
     hideInForm: true,
   },
   {
-    title: '商品图片',
-    dataIndex: 'image',
-    sorter: true,
-    search: {
-      transform: (value: any) => ({ image: value }),
-    },
-    editable: false,
-    hideInForm: true,
-  },
-  {
-    title: '商品码',
-    dataIndex: 'code',
+    title: '父标签id',
+    dataIndex: 'parentId',
     sorter: true,
     search: false,
     editable: false,
     hideInForm: true,
-  },
-  {
-    title: '创建人',
-    dataIndex: 'createUserName',
-    sorter: true,
-    search: false,
-    hideInForm: true,
-    editable: false,
-  },
-  {
-    title: '修改人',
-    dataIndex: 'updateUserName',
-    sorter: true,
-    search: false,
-    hideInForm: true,
-    editable: false,
   },
   {
     title: '创建时间',
@@ -177,11 +146,11 @@ export default () => {
    * @zh-CN 添加节点
    * @param fields
    */
-  const handleAdd = async ({ fields }: { fields: API.ProductAddRequest | undefined }) => {
+  const handleAdd = async (fields: API.TagAddRequest | undefined) => {
     const hide = message.loading('正在添加');
     try {
       console.log(fields, 'fields');
-      let res = await saveUsingPOST2({
+      let res = await createUsingPOST1({
         ...fields,
       });
       hide();
@@ -222,13 +191,13 @@ export default () => {
             console.log(sorter[sortField], sorter, sortField);
             sortOrder = sorter[sortField] || '';
           }
-
-          const response: API.BaseResponsePageProductDto_ = await pageUsingGET1({
+          const response = await getAllTagByPageUsingGET({
             ...params,
             sortField,
             sortOrder,
           });
-          if (response.data && response.code === 0) {
+          // 假设后端返回的数据格式如下
+          if (response.data) {
             setPageSize(response.data.size || 0);
             return {
               data: response.data.records,
@@ -242,7 +211,7 @@ export default () => {
             success: false,
           };
         }}
-        // request={pageUsingGET1}
+        // request={getAllTagByPageUsingGET}
         editable={{
           type: 'multiple',
           onDelete: async (key, record) => {
@@ -251,7 +220,7 @@ export default () => {
           onSave: async (key, record) => {
             // 这里调用更新数据的API
             console.log(record, 'record');
-            const res = await updateUsingPUT1(record);
+            const res = await updateTagUsingPUT(record);
             if (res.code === 0) message.success('修改成功');
           },
           onCancel: async (key, record) => {
@@ -275,7 +244,7 @@ export default () => {
         onCancel={() => {
           handleModalOpen(false);
         }}
-        onSubmit={(values) => handleAdd({ fields: values })}
+        onSubmit={(values) => handleAdd(values)}
         visible={createModalOpen}
       ></CreateModal>
     </PageContainer>

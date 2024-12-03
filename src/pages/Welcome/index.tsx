@@ -20,7 +20,7 @@ const StyledCard = styled(Card)`
   margin: 20px auto;
 `;
 
-const Welcome: React.FC = () => {
+const Index: React.FC = () => {
   return (
     <StyledPageContainer>
       <StyledCard>
@@ -55,4 +55,4 @@ const Welcome: React.FC = () => {
   );
 };
 
-export default Welcome;
+export default Index;

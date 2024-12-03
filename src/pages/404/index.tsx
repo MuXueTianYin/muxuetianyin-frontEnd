@@ -19,10 +19,10 @@ const NoFoundPage: React.FC = () => (
       subTitle={<Paragraph>强化身高、颜值和银行卡存款等属性</Paragraph>}
       extra={
         <div>
-          <Button type="primary" onClick={() => history.push('/')} style={{ marginRight: '10px' }}>
+          <Button type="primary" onClick={() => history.replace('/')} style={{ marginRight: '10px' }}>
             重新降临该世界
           </Button>
-          <Button type="default" onClick={() => history.push('/MarkdownDocument/Recommend')}>
+          <Button type="default" onClick={() => history.push('/')}>
             查看热门内容
           </Button>
         </div>

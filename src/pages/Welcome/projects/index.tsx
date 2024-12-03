@@ -2,9 +2,9 @@ import { HomeOutlined } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import { Button, Card, Col, Image, Row, Space, Tag } from 'antd';
 import React from 'react';
-import project1Image from '../../public/image/project1.png';
-import project2Image from '../../public/image/project2.png';
-import project3Image from '../../public/image/project3.png';
+import project1Image from '../../../../public/image/project1.png';
+import project2Image from '../../../../public/image/project2.png';
+import project3Image from '../../../../public/image/project3.png';
 
 const { Meta } = Card;
 const ProjectIntroPage: React.FC = () => {
